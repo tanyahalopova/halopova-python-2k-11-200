@@ -1,7 +1,7 @@
-m1 = []
-m2 = []
-m3 = []
-m4 = []
+plus = []
+minus = []
+multiply = []
+divide = []
 str = " "
 while True:
     a = int(input())
@@ -9,21 +9,21 @@ while True:
     c = input()
     if c=="+":
         str = f"{a}+{b}={a + b}"
-        m1.append(str)
+        plus.append(str)
         print(str)
-        print(f"+ {m1}\n- {m2}\n* {m3}\n/ {m4}")
+        print(f"+ {plus}\n- {minus}\n* {multiply}\n/ {divide}")
     elif c=="-":
         str = f"{a}-{b}={a - b}"
-        m2.append(str)
+        minus.append(str)
         print(str)
-        print(f"+ {m1}\n- {m2}\n* {m3}\n/ {m4}")
+        print(f"+ {plus}\n- {minus}\n* {multiply}\n/ {divide}")
     elif c=="*":
         str = f"{a}*{b}={a * b}"
-        m3.append(str)
+        multiply.append(str)
         print(str)
-        print(f"+ {m1}\n- {m2}\n* {m3}\n/ {m4}")
+        print(f"+ {plus}\n- {minus}\n* {multiply}\n/ {divide}")
     else:
         str = f"{a}/{b}={a // b}"
-        m4.append(str)
+        divide.append(str)
         print(str)
-        print(f"+ {m1}\n- {m2}\n* {m3}\n/ {m4}")
+        print(f"+ {plus}\n- {minus}\n* {multiply}\n/ {divide}")
