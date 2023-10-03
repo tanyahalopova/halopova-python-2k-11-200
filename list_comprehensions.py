@@ -13,6 +13,7 @@ def process_numbers_with_filter(numbers):
 
     return evens, odds, negatives
 
+
 def work(fun):
     input_str = input("Введите числа, разделенные пробелами: ")
     numbers = list(map(int, input_str.split()))
@@ -20,6 +21,7 @@ def work(fun):
     print("Четные числа:", evens)
     print("Нечетные числа:", odds)
     print("Числа меньше 0:", negatives)
+
 
 print("С помощью list comprehensions:")
 work(process_numbers)
