@@ -17,7 +17,7 @@ class MyVector:
 
     def __mul__(self, other):
         if isinstance(other, (int, float)):
-            return Vector(self.x * other, self.y * other)
+            return MyVector(self.x * other, self.y * other)
         else:
             raise TypeError("аргумент должен быть числом")
 
@@ -32,4 +32,8 @@ result = a + b
 print(result)
 
 result = a - b
+print(result)
+
+c = 2
+result = a * c
 print(result)
