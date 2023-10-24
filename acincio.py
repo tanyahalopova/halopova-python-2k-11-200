@@ -1,7 +1,9 @@
-import os
 import asyncio
-import bs4
+import os
+
 import aiohttp
+import bs4
+
 
 async def download_image(session, url, save_path):
     async with session.get(url) as response:
@@ -11,6 +13,7 @@ async def download_image(session, url, save_path):
                 if not chunk:
                     break
                 file.write(chunk)
+
 
 async def scrape_images(url, save_dir):
     async with aiohttp.ClientSession() as session:
@@ -25,6 +28,7 @@ async def scrape_images(url, save_dir):
                 tasks.append(asyncio.create_task(download_image(session, image_url, save_path)))
 
         await asyncio.gather(*tasks)
+
 
 page_url = input("Введите адрес страницы: ")
 save_directory = input("Введите название папки для сохранения изображений: ")
