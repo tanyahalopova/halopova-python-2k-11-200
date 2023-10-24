@@ -1,4 +1,5 @@
 import pytest
+
 def normalize_image_url(image_url, domain):
     if image_url.startswith('//'):
         image_url = 'http:' + image_url
