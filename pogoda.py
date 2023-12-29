@@ -7,7 +7,7 @@ if response.status_code == 200:
     soup = bs4.BeautifulSoup(response.text, "html.parser")
 
     current_weather = soup.find(class_="temp__value").get_text()
-    print("Текущая температура:", current_weather + "°C")
+    print(f"Текущая температура: {current_weather}°C")
 
     week_forecast = soup.find_all(class_="forecast-briefly__day")
     print("Погода на неделю:")
