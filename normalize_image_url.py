@@ -1,3 +1,6 @@
+import pytest
+
+
 def normalize_image_url(image_url, domain):
     if image_url.startswith('//'):
         image_url = 'http:' + image_url
@@ -6,19 +9,11 @@ def normalize_image_url(image_url, domain):
     return image_url
 
 
-def test_normalize_image_url_with_protocol():
-    image_url = 'https://example.com/image.jpg'
-    domain = 'example.com'
-    assert normalize_image_url(image_url, domain) == 'https://example.com/image.jpg'
-
-
-def test_normalize_image_url_without_protocol():
-    image_url = '//example.com/image.jpg'
-    domain = 'example.com'
-    assert normalize_image_url(image_url, domain) == 'http://example.com/image.jpg'
-
-
-def test_normalize_image_url_without_domain():
-    image_url = '/image.jpg'
-    domain = 'example.com'
-    assert normalize_image_url(image_url, domain) == 'http://example.com/image.jpg'
+@pytest.mark.parametrize("image_url, domain, correct_image_url", [
+    ('https://example.com/image.jpg', 'example.com', 'https://example.com/image.jpg'),
+    ('//example.com/image.jpg', 'example.com', 'http://example.com/image.jpg'),
+    ('/image.jpg', 'example.com', 'http://example.com/image.jpg')
+])
+def test_normalize_image_url_with_protocol(image_url, domain, correct_image_url):
+    actual_result = normalize_image_url(image_url, domain)
+    assert actual_result == correct_image_url
